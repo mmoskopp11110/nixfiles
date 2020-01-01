@@ -27,9 +27,9 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  # environment.systemPackages = with pkgs; [
-  #   wget vim
-  # ];
+  environment.systemPackages = with pkgs; [
+     feh 
+  ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -57,5 +57,6 @@
 
   # enable i3
   services.xserver.windowManager.i3.enable = true;
+  services.xserver.windowManager.i3.configFile = ./i3.conf;
 }
 
