@@ -28,7 +28,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-     feh 
+     
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -50,13 +50,46 @@
   sound.enable = true;
   hardware.pulseaudio.enable = true;
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-  services.xserver.layout = "us";
-  services.xserver.xkbOptions = "eurosign:e";
+  # enable i3/xfce combo (wm/dm)
+  services.xserver = {
+    enable = true;
+    layout = "us";
+    xkbOptions = "eurosign:e";
+    desktopManager = {
+      default = "xfce";
+      xterm.enable = false;
+      xfce = {
+        enable = true;
+        noDesktop = true;
+        enableXfwm = false;
+      };
+      wallpaper = {
+        combineScreens = false;
+        mode = "fill";
+      };
+    };
+    windowManager.i3 = {
+      enable = true;
+      extraPackages = with pkgs; [
+        dmenu
+        i3status
+        i3lock
+        polybarFull
+      ];
+      configFile = ./i3.conf;
+    };
+  };
 
-  # enable i3
-  services.xserver.windowManager.i3.enable = true;
-  services.xserver.windowManager.i3.configFile = ./i3.conf;
+  # Sane font defaults
+  fonts = {
+    #enableFontDir = true;
+    #enableGhostscriptFonts = true;
+    #fontconfig.cache32Bit = true;
+    fonts = with pkgs; [
+      siji
+      unifont
+    ];
+  };
+
 }
 

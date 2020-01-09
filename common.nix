@@ -80,4 +80,6 @@
         ];
       in common ++ (if config.services.xserver.enable then xorg else noxorg);
 
+	programs.vim.defaultEditor = true;
+
 }
