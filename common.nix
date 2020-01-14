@@ -54,6 +54,7 @@
           gnupg
           htop
           imagemagick
+          killall
           man-pages
           nmap
           python3
@@ -61,7 +62,7 @@
           rsync
           tmux
           unzip
-          vim
+          (import ./vim_plugins.nix)
           which
           whois
           wget

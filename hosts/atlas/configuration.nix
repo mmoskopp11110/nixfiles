@@ -53,8 +53,8 @@
   # enable i3/xfce combo (wm/dm)
   services.xserver = {
     enable = true;
-    layout = "us";
-    xkbOptions = "eurosign:e";
+    layout = "us,de";
+    xkbOptions = "eurosign:e, grp:win_space_toggle";
     desktopManager = {
       default = "xfce";
       xterm.enable = false;
@@ -76,7 +76,7 @@
         i3lock
         polybarFull
       ];
-      configFile = ./i3.conf;
+      configFile = ../dotfiles/i3/config;
     };
   };
 
