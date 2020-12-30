@@ -55,8 +55,8 @@
     enable = true;
     layout = "us,de";
     xkbOptions = "eurosign:e, grp:win_space_toggle";
+    displayManager.defaultSession = "xfce";
     desktopManager = {
-      default = "xfce";
       xterm.enable = false;
       xfce = {
         enable = true;

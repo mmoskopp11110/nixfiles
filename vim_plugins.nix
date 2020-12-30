@@ -37,7 +37,7 @@ vim_configurable.customize {
           "ale"
           "vim-gitgutter"
           "vimtex"
-          "youcompleteme"
+          "YouCompleteMe"
         ]; }
     ];
 }
