@@ -5,19 +5,19 @@
 { config, pkgs, ... }:
 
 {
+  networking.hostName = "atlasvm";
+  
   # virtualbox
   virtualisation.virtualbox.guest.enable = true;
-  boot.loader.grub.device = "/dev/sda";
   boot.initrd.checkJournalingFS = false;
   security.rngd.enable = false;
-
-  # Use the systemd-boot EFI boot loader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.grub.useOSProber = true;
-
-  networking.hostName = "atlasvm"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  
+  # grub
+  boot.loader.grub = {
+    enable = true;
+    device = "/dev/sda";
+    useOSProber = true;
+  };
 
   # The global useDHCP flag is deprecated, therefore explicitly set to false here.
   # Per-interface useDHCP will be mandatory in the future, so this generated config
