@@ -53,8 +53,8 @@
   # enable i3/xfce combo (wm/dm)
   services.xserver = {
     enable = true;
-    layout = "us,de";
-    xkbOptions = "eurosign:e, grp:win_space_toggle";
+    layout = "de,us";
+    xkbOptions = "eurosign:e, grp:alt_caps_toggle";
     displayManager.defaultSession = "xfce";
     desktopManager = {
       xterm.enable = false;
