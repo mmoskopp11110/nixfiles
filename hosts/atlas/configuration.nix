@@ -7,13 +7,12 @@
 {
   # virtualbox
   virtualisation.virtualbox.guest.enable = true;
-  boot.loader.grub.device = "/dev/sda";
   boot.initrd.checkJournalingFS = false;
   security.rngd.enable = false;
 
-  # Use the systemd-boot EFI boot loader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  # grub 
+  boot.loader.grub.enable = true;
+  boot.loader.grub.device = "/dev/sda";
   boot.loader.grub.useOSProber = true;
 
   networking.hostName = "atlasvm"; # Define your hostname.
@@ -28,7 +27,6 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-     
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -55,19 +53,7 @@
     enable = true;
     layout = "de,us";
     xkbOptions = "eurosign:e, grp:alt_caps_toggle";
-    displayManager.defaultSession = "xfce";
-    desktopManager = {
-      xterm.enable = false;
-      xfce = {
-        enable = true;
-        noDesktop = true;
-        enableXfwm = false;
-      };
-      wallpaper = {
-        combineScreens = false;
-        mode = "fill";
-      };
-    };
+    displayManager.defaultSession = "none+i3";
     windowManager.i3 = {
       enable = true;
       extraPackages = with pkgs; [
@@ -92,4 +78,3 @@
   };
 
 }
-

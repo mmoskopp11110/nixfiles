@@ -12,18 +12,13 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/3f7c8f34-61be-4e1a-9012-eb213651816a";
+    {
+      device = "/dev/disk/by-uuid/65f36a69-a0b3-4ba0-9a4a-7b2a6963d3da";
       fsType = "ext4";
     };
 
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/BAAC-7FE2";
-      fsType = "vfat";
-    };
-
   swapDevices =
-    [ { device = "/dev/disk/by-uuid/356039ce-613d-4c0a-89f0-1e0273bf2d44"; }
-    ];
+    [{ device = "/dev/disk/by-uuid/0143148e-708b-4483-acc2-b4e71b5e5c87"; }];
 
   virtualisation.virtualbox.guest.enable = true;
 }
