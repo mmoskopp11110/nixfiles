@@ -39,7 +39,7 @@
     uid = 1000;
     description = "Markus Moskopp <markus@moskopp.biz>";
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" ];
+    extraGroups = [ "wheel" "networkmanager" "dialout" "audio" "video" ];
     initialPassword = "nixos";
     shell = pkgs.zsh;
   };
@@ -76,9 +76,10 @@
 
       # Packages to install if X is enabled.
       xorg = [
-        google-chrome
         evince
         firefox
+        google-chrome
+        terminator
         vscode
       ];
     in
